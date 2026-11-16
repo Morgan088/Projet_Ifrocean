@@ -1,4 +1,17 @@
 <?php
+$title = "Connexion";
+include "header.php";
+?>
+
+<!-- Ton formulaire de connexion ici -->
+<form method="POST" action="traitement_login.php">
+    <!-- tes champs input (email, mot de passe...) -->
+</form>
+
+<?php
+include "footer.php";
+?>
+<?php
 session_start();
 $erreur = "";
 
@@ -56,6 +69,7 @@ if (isset($_POST['email']) && isset($_POST['mot_de_passe'])) {
 <head>
     <meta charset="UTF-8">
     <title>Connexion</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <h1>Connexion</h1>

@@ -21,10 +21,10 @@ include "header.php";
 
 
     <div class="conteneur-boutons">
-        <a href="zone_scientifique.php" class="gros-bouton">
+        <a href="zoneScientifique.php" class="gros-bouton">
             Zone<br>Scientifique
         </a>
-        <a href="synthese_etude.php" class="gros-bouton">
+        <a href="synthese.php" class="gros-bouton">
             Synthèse<br>étude
         </a>
     </div>

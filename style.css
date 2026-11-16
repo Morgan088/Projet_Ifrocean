@@ -1,0 +1,113 @@
+/* ==========================================================
+   STYLE GLOBAL & HEADER PLEINE LARGEUR
+   ========================================================== */
+body {
+    font-family: sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0; /* Supprime les marges pour que le header touche les bords */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Force le header à prendre 100% de la largeur de l'écran */
+header, .header-container, nav {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* ==========================================================
+   FORMULAIRE DE CONNEXION (Boîte unique et propre)
+   ========================================================== */
+.login-container-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+/* Cible uniquement le formulaire de la page de connexion */
+form[action="login.php"] {
+    background: #ffffff;
+    padding: 35px 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    border: 2px solid #3385ff;
+    width: 100%;
+    max-width: 420px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Style du titre H1 */
+h1 {
+    color: #1a1a1a;
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Style des champs input */
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px 15px;
+    box-sizing: border-box;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    font-size: 1rem;
+    margin-top: 5px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #3385ff;
+    box-shadow: 0 0 5px rgba(51, 133, 255, 0.3);
+}
+
+/* Style du bouton de validation (OK) */
+input[type="submit"] {
+    background-color: #3385ff;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    margin-top: 15px;
+    width: 100%;
+}
+
+input[type="submit"]:hover {
+    background-color: #1a5cd8;
+}
+
+input[type="submit"]:active {
+    transform: scale(0.98);
+}
+
+/* Style du message d'erreur */
+p[style*="color: red;"],
+p[style*="color:red"] {
+    background-color: #f8d7da;
+    color: #721c24 !important;
+    border: 1px solid #f5c6cb;
+    padding: 12px;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    width: 100%;
+    max-width: 420px;
+    box-sizing: border-box;
+}
