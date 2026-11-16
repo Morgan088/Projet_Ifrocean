@@ -199,4 +199,77 @@
 @keyframes nage {
     from { transform: translateX(0) scaleX(-1); }
     to   { transform: translateX(360px) scaleX(-1); }
+
+}
+
+/* ===== TITRE ANIMÉ ===== */
+.titre-mer {
+    position: relative;
+    display: inline-block;
+    padding: 0 10px;
+}
+
+/* Chaque lettre monte et descend comme une vague */
+.header-title span {
+    display: inline-block;
+    animation: lettre-vague 2.4s ease-in-out infinite;
+    animation-delay: calc(var(--i) * 0.15s);
+}
+
+@keyframes lettre-vague {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-8px); }
+}
+
+/* Poissons qui nagent sous le titre */
+.poisson {
+    position: absolute;
+    font-size: 1.2rem;
+    pointer-events: none;
+}
+
+.poisson-a {
+    bottom: -14px;
+    left: -30px;
+    transform: scaleX(-1);
+    animation: nage-droite 7s linear infinite;
+}
+
+.poisson-b {
+    bottom: -4px;
+    left: 100%;
+    animation: nage-gauche 9s linear infinite;
+    animation-delay: 2s;
+}
+
+@keyframes nage-droite {
+    from { left: -30px; }
+    to   { left: 100%; }
+}
+
+@keyframes nage-gauche {
+    from { left: 100%; }
+    to   { left: -30px; }
+}
+
+/* Dauphin qui saute */
+.poisson-saut {
+    position: absolute;
+    left: 15%;
+    bottom: -8px;
+    font-size: 1.5rem;
+    opacity: 0;
+    pointer-events: none;
+    animation: saut 6s ease-in-out infinite;
+    animation-delay: 1s;
+}
+
+@keyframes saut {
+    0%   { opacity: 0; transform: translate(0, 20px) scaleX(-1); }
+    5%   { opacity: 1; }
+    10%  { transform: translate(25px, -5px) scaleX(-1); }
+    20%  { transform: translate(50px, -18px) scaleX(-1); }
+    30%  { transform: translate(75px, -5px) scaleX(-1); }
+    40%  { opacity: 0; transform: translate(100px, 20px) scaleX(-1); }
+    100% { opacity: 0; transform: translate(100px, 20px) scaleX(-1); }
 }
