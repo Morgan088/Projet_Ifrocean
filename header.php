@@ -3,8 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?php echo $title; ?></title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title><?php echo $title ?? 'Ifrocean'; ?></title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="header.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </head>
+<body>
+
+<header class="header">
+    <div class="container-fluid header-contenu">
+        <div class="row align-items-center py-2">
+
+            <!-- Gauche : logo -->
+            <div class="col-4 text-start">
+                <a href="index.php" class="header-logo">
+                    <img src="img/logo.png" alt="Logo Ifrocean">
+                </a>
+            </div>
+
+            <!-- Centre : nom du site -->
+            <div class="col-4 text-center">
+                <h1 class="header-title m-0">Ifrocean</h1>
+            </div>
+
+            <!-- Droite : menu burger -->
+            <div class="col-4 text-end">
+                <button class="btn btn-burger fs-3 lh-1" type="button"
+                        data-bs-toggle="offcanvas" data-bs-target="#menuBurger"
+                        aria-controls="menuBurger" aria-label="Ouvrir le menu">
+                    ☰
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Décor : bulles, poisson, vagues -->
+    <div class="bulles">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="header-poisson">🐠</div>
+    <div class="vagues">
+        <div class="vague vague1"></div>
+        <div class="vague vague2"></div>
+        <div class="vague vague3"></div>
+    </div>
+</header>
+
+<!-- Menu qui s'ouvre au clic sur le burger -->
+<!-- Menu qui s'ouvre au clic sur le burger -->
+<div class="offcanvas offcanvas-end menu-mer" tabindex="-1" id="menuBurger">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Menu</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Fermer"></button>
+    </div>
+    <div class="offcanvas-body">
+        <ul class="list-unstyled">
+            <li><a href="index.php">🏠 Accueil</a></li>
+            <li><a href="login.php">🐠 Connexion</a></li>
+            <li><a href="logout.php">🐋 Déconnexion</a></li>
+        </ul>
+
+        <div class="poisson-nage">🐟</div>
+    </div>
+</div>
