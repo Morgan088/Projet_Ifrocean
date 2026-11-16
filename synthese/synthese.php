@@ -55,7 +55,7 @@ include "header.php";
             </div>
             <button type="submit" class="btn btn-primary">Générer</button>
             <?php if ($id): ?>
-                <a href="modifierEtude.php?id=<?= $id ?>" class="btn btn-warning">Modifier</a>
+                <a href="../modifierEtude.php?id=<?= $id ?>" class="btn btn-warning">Modifier</a>
             <?php endif; ?>
         </form>
 
