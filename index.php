@@ -13,12 +13,21 @@ include "header.php";
 
     <h1>Bienvenue <?php echo htmlentities($user['prenom']); ?> <?php echo htmlentities($user['nom']); ?></h1>
 
-
 <?php if ($user['role'] === 'admin'): ?>
     <p>Menu Admin : Gestion du site</p>
 <?php elseif ($user['role'] === 'preleveur'): ?>
     <p>Menu Préleveur : Saisie des données</p>
 <?php endif; ?>
+
+
+    <div class="conteneur-boutons">
+        <a href="zone_scientifique.php" class="gros-bouton">
+            Zone<br>Scientifique
+        </a>
+        <a href="synthese_etude.php" class="gros-bouton">
+            Synthèse<br>étude
+        </a>
+    </div>
 
     <div class="zone-description">
         <h3>À propos du projet</h3>
