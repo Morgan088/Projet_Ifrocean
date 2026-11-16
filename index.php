@@ -13,7 +13,7 @@ include "header.php";
 
     <h1>Bienvenue <?php echo htmlentities($user['prenom']); ?> <?php echo htmlentities($user['nom']); ?></h1>
 
-    <!-- ZONE DE DESCRIPTION DU PROJET -->
+
     <div class="zone-description">
         <h3>À propos du projet</h3>
         <p>La description Ifrocean.</p>
