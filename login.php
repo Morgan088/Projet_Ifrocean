@@ -58,7 +58,7 @@ if (isset($_POST['email']) && isset($_POST['mot_de_passe'])) {
     <title>Connexion</title>
 </head>
 <body>
-<h1>Connexion de skibidi sevan</h1>
+<h1>Connexion</h1>
 <?php if ($erreur != ""): ?>
     <p style="color: red;"><?php echo $erreur; ?></p>
 <?php endif; ?>
