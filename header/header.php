@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?php echo $title ?? 'Ifrocean'; ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="../index.css">
     <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="../synthese/synthese.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
@@ -21,27 +23,22 @@
 
             <!-- Gauche : logo -->
             <div class="col-4 text-start">
-                <a href="index.php" class="header-logo">
-                    <img src="img/logo.png" alt="Logo Ifrocean">
+                <a href="../index.php" class="header-logo">
+                    <img src="../img/logo.png" alt="Logo Ifrocean">
                 </a>
             </div>
 
             <!-- Centre : nom du site -->
             <div class="col-4 text-center">
-                <h1 class="header-title m-0">Ifrocean</h1>
+                <div class="titre-mer">
+                    <h1 class="header-title m-0" aria-label="Ifrocean">
+                        <span style="--i:0">I</span><span style="--i:1">f</span><span style="--i:2">r</span><span style="--i:3">o</span><span style="--i:4">c</span><span style="--i:5">e</span><span style="--i:6">a</span><span style="--i:7">n</span>
+                    </h1>
+                    <span class="poisson poisson-a">🐟</span>
+                    <span class="poisson poisson-b">🐠</span>
+                    <span class="poisson-saut">🐬</span>
+                </div>
             </div>
-
-            <!-- Droite : menu burger -->
-            <div class="col-4 text-end">
-                <button class="btn btn-burger fs-3 lh-1" type="button"
-                        data-bs-toggle="offcanvas" data-bs-target="#menuBurger"
-                        aria-controls="menuBurger" aria-label="Ouvrir le menu">
-                    ☰
-                </button>
-            </div>
-
-        </div>
-    </div>
 
     <!-- Décor : bulles, poisson, vagues -->
     <div class="bulles">
@@ -64,9 +61,9 @@
     </div>
     <div class="offcanvas-body">
         <ul class="list-unstyled">
-            <li><a href="index.php">🏠 Accueil</a></li>
-            <li><a href="login.php">🐠 Connexion</a></li>
-            <li><a href="logout.php">🐋 Déconnexion</a></li>
+            <li><a href="../index.php">🏠 Accueil</a></li>
+            <li><a href="../login.php">🐠 Connexion</a></li>
+            <li><a href="../logout.php">🐋 Déconnexion</a></li>
         </ul>
 
         <div class="poisson-nage">🐟</div>
