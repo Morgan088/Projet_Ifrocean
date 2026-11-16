@@ -8,41 +8,36 @@ $db = new PDO('mysql:host='.Config::HOST.';dbname='.Config::DBNAME, Config::USER
 $id = filter_input(INPUT_GET, 'id_etude', FILTER_VALIDATE_INT);
 $etudes = $db->query("SELECT id_etude, code_titre FROM etude_scientifique")->fetchAll(PDO::FETCH_ASSOC);
 
-$data = null;
-$especes = [];
+$etudeInfo = null;
+$sessions = [];
 
 if ($id) {
-    $req = $db->prepare("
-        SELECT es.*, rg.nom_usuel, sp.date_sortie, sp.zone_polygon, sp.id_session
-        FROM etude_scientifique es
-        JOIN etude_plage ep ON es.id_etude = ep.id_etude
-        JOIN referentiel_geographique rg ON ep.id_plage = rg.id_plage
-        LEFT JOIN sessions_prelevement sp ON es.id_etude = sp.id_etude
-        WHERE es.id_etude = :id
-    ");
+    // Récupérer les infos globales de l'étude
+    $req = $db->prepare("SELECT * FROM etude_scientifique WHERE id_etude = :id");
     $req->execute([':id' => $id]);
-    $data = $req->fetch(PDO::FETCH_ASSOC);
+    $etudeInfo = $req->fetch(PDO::FETCH_ASSOC);
 
-    if ($data && $data['id_session']) {
-        $reqEsp = $db->prepare("
-            SELECT em.nom_vernaculaire, ci.nombre_individus
-            FROM comptage_des_individus ci
-            JOIN especes_marines em ON ci.id_espece = em.id_espece
-            WHERE ci.id_session = :id_session
-        ");
-        $reqEsp->execute([':id_session' => $data['id_session']]);
-        $especes = $reqEsp->fetchAll(PDO::FETCH_ASSOC);
-    }
+    // Récupérer toutes les sessions de prélèvement liées à cette étude (avec ST_AsText pour le polygone)
+    $reqSessions = $db->prepare("
+        SELECT sp.*, rg.nom_usuel, rg.commune, rg.departement, ST_AsText(sp.zone_polygon) AS wkt_polygon
+        FROM sessions_prelevement sp
+        JOIN referentiel_geographique rg ON sp.id_plage = rg.id_plage
+        WHERE sp.id_etude = :id
+    ");
+    $reqSessions->execute([':id' => $id]);
+    $sessions = $reqSessions->fetchAll(PDO::FETCH_ASSOC);
 }
 
 $title = "Synthèse";
 include "header.php";
 ?>
 
+    <link rel="stylesheet" href="synthese.css">
+
     <div class="container mt-4">
         <h1>Synthèse étude</h1>
 
-        <form method="GET" class="mb-3">
+        <form method="GET" class="mb-4">
             <div class="mb-2">
                 <select name="id_etude" class="form-select" required>
                     <option value="">-- Choisir une étude --</option>
@@ -55,25 +50,55 @@ include "header.php";
             </div>
             <button type="submit" class="btn btn-primary">Générer</button>
             <?php if ($id): ?>
-                <a href="../modifierEtude.php?id=<?= $id ?>" class="btn btn-warning">Modifier</a>
+                <a href="modifierEtude.php?id=<?= $id ?>" class="btn btn-warning">Modifier</a>
             <?php endif; ?>
         </form>
 
-        <?php if ($id && $data): ?>
-            <div class="card p-3">
-                <p><strong>Plage :</strong> <?= htmlentities($data['nom_usuel']) ?></p>
-                <p><strong>Date :</strong> <?= htmlentities($data['date_sortie']) ?></p>
-                <p><strong>Coordonnées zone :</strong> <?= htmlentities($data['zone_polygon']) ?></p>
-
-                <h5>Espèces et effectifs :</h5>
-                <ul>
-                    <?php foreach ($especes as $esp): ?>
-                        <li><?= htmlentities($esp['nom_vernaculaire']) ?> : <?= $esp['nombre_individus'] ?></li>
-                    <?php endforeach; ?>
-                </ul>
+        <?php if ($id && $etudeInfo): ?>
+            <div class="card p-4 mb-3">
+                <h3><?= htmlentities($etudeInfo['code_titre']) ?> (<?= $etudeInfo['annee_lancement'] ?>)</h3>
+                <p><strong>Descriptif :</strong> <?= htmlentities($etudeInfo['descriptif']) ?></p>
             </div>
+
+            <h4 class="mb-3">Sessions de prélèvement et plages associées :</h4>
+
+            <?php if (!empty($sessions)): ?>
+                <?php foreach ($sessions as $session): ?>
+                    <div class="card p-3 mb-3 bg-light">
+                        <p><strong>Plage :</strong> <?= htmlentities($session['nom_usuel']) ?> (<?= htmlentities($session['commune']) ?> - <?= htmlentities($session['departement']) ?>)</p>
+                        <p><strong>Date de sortie :</strong> <?= htmlentities($session['date_sortie']) ?></p>
+                        <p><strong>Nombre de préleveurs :</strong> <?= htmlentities($session['nb_preleveurs']) ?></p>
+                        <p><strong>Surface réelle :</strong> <?= htmlentities($session['surface_reelle']) ?> m²</p>
+                        <p><strong>Coordonnées zone (Polygon) :</strong> <small class="text-break"><code><?= htmlentities($session['wkt_polygon']) ?></code></small></p>
+
+                        <h5>Espèces et effectifs :</h5>
+                        <ul>
+                            <?php
+                            $reqEsp = $db->prepare("
+                            SELECT em.nom_vernaculaire, em.nom_scientifique, ci.nombre_individus
+                            FROM comptage_des_individus ci
+                            JOIN especes_marines em ON ci.id_espece = em.id_espece
+                            WHERE ci.id_session = :id_session
+                        ");
+                            $reqEsp->execute([':id_session' => $session['id_session']]);
+                            $especes = $reqEsp->fetchAll(PDO::FETCH_ASSOC);
+                            ?>
+                            <?php if (!empty($especes)): ?>
+                                <?php foreach ($especes as $esp): ?>
+                                    <li><?= htmlentities($esp['nom_vernaculaire']) ?> (<em><?= htmlentities($esp['nom_scientifique']) ?></em>) : <strong><?= $esp['nombre_individus'] ?></strong></li>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <li><em>Aucune espèce enregistrée pour cette session.</em></li>
+                            <?php endif; ?>
+                        </ul>
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <div class="alert alert-warning">Aucune session de prélèvement trouvée pour cette étude.</div>
+            <?php endif; ?>
+
         <?php elseif ($id): ?>
-            <div class="alert alert-danger">Aucune donnée trouvée pour cette étude.</div>
+            <div class="alert alert-danger">Étude introuvable.</div>
         <?php endif; ?>
     </div>
 
