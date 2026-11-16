@@ -43,8 +43,8 @@ if (isset($_POST['email']) && isset($_POST['mot_de_passe'])) {
                     $nouveau_hash = password_hash($mot_de_passe, PASSWORD_DEFAULT);
                     $update = $db->prepare("UPDATE utilisateurs SET mot_de_passe = :hash WHERE id = :id");
                     $update->execute([
-                        ':hash' => $nouveau_hash,
-                        ':id' => $utilisateur['id']
+                            ':hash' => $nouveau_hash,
+                            ':id' => $utilisateur['id']
                     ]);
                 }
 

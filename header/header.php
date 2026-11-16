@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?php echo $title ?? 'Ifrocean'; ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../index.css">
+    <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="../synthese/synthese.css">
 
@@ -40,6 +40,16 @@
                 </div>
             </div>
 
+            <!-- Droite : Bouton Burger pour ouvrir le menu -->
+            <div class="col-4 text-end">
+                <button class="btn btn-burger fs-3" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuBurger" aria-controls="menuBurger">
+                    ☰
+                </button>
+            </div>
+
+        </div> <!-- Fin de .row -->
+    </div> <!-- Fin de .container-fluid -->
+
     <!-- Décor : bulles, poisson, vagues -->
     <div class="bulles">
         <span></span><span></span><span></span><span></span><span></span><span></span>
@@ -52,7 +62,6 @@
     </div>
 </header>
 
-<!-- Menu qui s'ouvre au clic sur le burger -->
 <!-- Menu qui s'ouvre au clic sur le burger -->
 <div class="offcanvas offcanvas-end menu-mer" tabindex="-1" id="menuBurger">
     <div class="offcanvas-header">
