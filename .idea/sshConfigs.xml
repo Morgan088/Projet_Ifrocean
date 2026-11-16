@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SshConfigs">
+    <configs>
+      <sshConfig authType="PASSWORD" host="serveur.b1.latetedanslephp.fr" id="ffaa0221-45bb-43f8-8203-cd82d2d5c3aa" port="22" nameFormat="DESCRIPTIVE" username="groupe_ifrocean_2" useOpenSSHConfig="true" />
+    </configs>
+  </component>
+</project>
