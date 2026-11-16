@@ -63,7 +63,7 @@ if (isset($_POST['email']) && isset($_POST['mot_de_passe'])) {
     <p style="color: red;"><?php echo $erreur; ?></p>
 <?php endif; ?>
 <form action="login.php" method="POST">
-    Email : <input type="email" name="email" required>
+    Email de skibidi : <input type="email" name="email" required>
     <br>
     Mot de passe : <input type="password" name="mot_de_passe" required>
     <br>
