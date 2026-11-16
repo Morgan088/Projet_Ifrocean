@@ -1,0 +1,97 @@
+/* ==========================================================
+   1. PAGE ZONE SCIENTIFIQUE
+   ========================================================== */
+.page-scientifique {
+    max-width: 550px;
+    margin: 20px auto;
+    padding: 0 15px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+/* Titre centré en haut */
+.titre-scientifique {
+    text-align: center;
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    margin-bottom: 30px;
+    color: #1a1a1a;
+}
+
+/* Conteneur des 3 grands boutons avec de l'espace */
+.liste-boutons-sci {
+    display: flex;
+    flex-direction: column;
+    gap: 25px; /* Espace entre les boutons */
+}
+
+/* Style des 3 grands boutons rectangulaires (bordure bleue classique) */
+.bouton-sci {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    min-height: 95px;
+    padding: 15px 20px;
+    box-sizing: border-box;
+
+    background-color: #ffffff;
+    color: #1a1a1a;
+    border: 2px solid #3385ff;
+    border-radius: 8px;
+    text-decoration: none;
+
+    font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+    font-weight: 500;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+}
+
+.bouton-sci:hover {
+    background-color: #f4f4f4;
+    border-color: #1a5cd8;
+}
+
+.bouton-sci:active {
+    transform: scale(0.98);
+}
+
+/* Zone du bouton ENVOYER alignée à droite */
+.zone-envoyer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 40px;
+}
+
+/* Style du petit bouton ENVOYER (bordure bleue classique) */
+.bouton-envoyer {
+    background-color: #ffffff;
+    color: #1a1a1a;
+    border: 2px solid #3385ff;
+    border-radius: 6px;
+    padding: 10px 25px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+}
+
+.bouton-envoyer:hover {
+    background-color: #f0f0f0;
+    border-color: #1a5cd8;
+}
+
+.bouton-envoyer:active {
+    transform: scale(0.96);
+}
+
+/* Message de confirmation vert après envoi */
+.alerte-succes {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    padding: 12px 15px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    text-align: center;
+}
