@@ -16,7 +16,7 @@ include "header.php";
 
     <div class="zone-description">
         <h3>À propos du projet</h3>
-        <p>Le réchauffement climatique rapide auquel sont exposées les espèces du littoral atlantique impacte fortement leur distribution. Le but de cette étude est de recenser et quantifier les populations animales présentes sur l’estran des grandes plages de sable du littoral nord-ouest de la côte atlantique française. Cette étude se concentrera sur les annélides.</p>
+        <p>Le but de cette étude est de recenser et quantifier les populations animales présentes sur l’estran des grandes plages de sable du littoral nord-ouest de la côte atlantique française. Cette étude se concentrera sur les annélides.</p>
     </div>
 
 <?php if ($user['role'] === 'admin'): ?>
