@@ -58,12 +58,12 @@ if (isset($_POST['email']) && isset($_POST['mot_de_passe'])) {
     <title>Connexion</title>
 </head>
 <body>
-<h1>Connexion</h1>
+<h1>Connexion de skibidi</h1>
 <?php if ($erreur != ""): ?>
     <p style="color: red;"><?php echo $erreur; ?></p>
 <?php endif; ?>
 <form action="login.php" method="POST">
-    Email de skibidi : <input type="email" name="email" required>
+    Email : <input type="email" name="email" required>
     <br>
     Mot de passe : <input type="password" name="mot_de_passe" required>
     <br>
