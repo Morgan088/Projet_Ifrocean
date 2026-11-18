@@ -39,7 +39,7 @@ include "header.php";
 
         <!-- Les 3 grands boutons principaux -->
         <div class="liste-boutons-sci">
-            <a href="creer_plage.php" class="bouton-sci">
+            <a href="formulaireCreePlage.php" class="bouton-sci">
                 Crée plage
             </a>
             <a href="creer_etude.php" class="bouton-sci">
