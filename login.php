@@ -15,7 +15,7 @@ include "footer.php";
 session_start();
 $erreur = "";
 
-if (isset($_POST['email']) && isset($_POST['mot_de_passe'])) {
+if (isset($_POST['email']) && isset($_POST['mot_de_passe'])) { //isset on le met car on utilise sa pro
     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
     $mot_de_passe = $_POST['mot_de_passe'] ?? '';
 

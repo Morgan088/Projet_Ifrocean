@@ -2,7 +2,7 @@
 session_start();
 if (!isset($_SESSION['user'])) { header("Location: login.php"); exit(); }
 
-include "config.php";
+include "../config.php";
 $db = new PDO('mysql:host='.Config::HOST.';dbname='.Config::DBNAME, Config::USER, Config::PASSWORD);
 
 $id = filter_input(INPUT_GET, 'id_etude', FILTER_VALIDATE_INT);
@@ -17,7 +17,7 @@ if ($id) {
     $req->execute([':id' => $id]);
     $etudeInfo = $req->fetch(PDO::FETCH_ASSOC);
 
-    // Récupérer toutes les sessions de prélèvement liées à cette étude (avec ST_AsText pour le polygone)
+    // Récupérer les sessions avec ST_AsText(sp.zone_polygon) bien appliqué
     $reqSessions = $db->prepare("
         SELECT sp.*, rg.nom_usuel, rg.commune, rg.departement, ST_AsText(sp.zone_polygon) AS wkt_polygon
         FROM sessions_prelevement sp
@@ -69,7 +69,7 @@ include "header.php";
                         <p><strong>Date de sortie :</strong> <?= htmlentities($session['date_sortie']) ?></p>
                         <p><strong>Nombre de préleveurs :</strong> <?= htmlentities($session['nb_preleveurs']) ?></p>
                         <p><strong>Surface réelle :</strong> <?= htmlentities($session['surface_reelle']) ?> m²</p>
-                        <p><strong>Coordonnées zone (Polygon) :</strong> <small class="text-break"><code><?= htmlentities($session['wkt_polygon']) ?></code></small></p>
+                        <p><strong>Coordonnées zone (Polygon) :</strong> <small class="text-break text-muted"><code><?= htmlentities($session['wkt_polygon']) ?></code></small></p>
 
                         <h5>Espèces et effectifs :</h5>
                         <ul>
