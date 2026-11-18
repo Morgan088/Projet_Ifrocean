@@ -7,7 +7,7 @@ $db = new PDO('mysql:host='.Config::HOST.';dbname='.Config::DBNAME, Config::USER
 
 $id = filter_input(INPUT_GET, 'id_etude', FILTER_VALIDATE_INT);
 $etudes = $db->query("SELECT id_etude, code_titre FROM etude_scientifique")->fetchAll(PDO::FETCH_ASSOC);
-
+//e
 $etudeInfo = null;
 $sessions = [];
 
