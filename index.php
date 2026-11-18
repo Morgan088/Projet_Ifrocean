@@ -23,7 +23,8 @@ include "header.php";
 
 
     <div class="conteneur-boutons">
-        <a href="zoneScientifique.php" class="gros-bouton">
+        <!-- Chemin corrigé vers le dossier zoneScientifique -->
+        <a href="zoneScientifique/zoneScientifique.php" class="gros-bouton">
             Zone<br>Scientifique
         </a>
         <a href="synthese.php" class="gros-bouton">
