@@ -29,7 +29,7 @@ if ($id) {
 }
 
 $title = "Synthèse";
-include "header.php";
+include "../header/header.php";
 ?>
 
     <link rel="stylesheet" href="synthese.css">
@@ -102,4 +102,4 @@ include "header.php";
         <?php endif; ?>
     </div>
 
-<?php include "footer.php"; ?>
+<?php include "../footer.php"; ?>
