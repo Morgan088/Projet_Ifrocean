@@ -1,6 +1,7 @@
 <?php
 $title = "Connexion";
 include "header.php";
+
 ?>
 
 <!-- Ton formulaire de connexion ici -->
@@ -8,9 +9,7 @@ include "header.php";
     <!-- tes champs input (email, mot de passe...) -->
 </form>
 
-<?php
-include "footer.php";
-?>
+
 <?php
 session_start();
 $erreur = "";
@@ -85,3 +84,6 @@ if (isset($_POST['email']) && isset($_POST['mot_de_passe'])) { //isset on le met
 </form>
 </body>
 </html>
+<?php
+include "footer.php";
+?>
