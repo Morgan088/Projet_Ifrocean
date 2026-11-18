@@ -28,7 +28,8 @@ include "header.php";
     <div class="container mt-4">
         <h1>Modifier l'étude : <?= htmlentities($etude['code_titre']) ?></h1>
 
-        <form action="actions/modifierEtudeAction.php" method="POST" class="mb-5">
+        <!-- Le formulaire pointe vers le fichier de traitement à la racine -->
+        <form action="modifierEtudeAction.php" method="POST" class="mb-5">
             <input type="hidden" name="id_etude" value="<?= $etude['id_etude'] ?>">
 
             <div class="card p-4 mb-3">

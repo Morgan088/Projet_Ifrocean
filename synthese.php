@@ -2,7 +2,7 @@
 session_start();
 if (!isset($_SESSION['user'])) { header("Location: login.php"); exit(); }
 
-include "../config.php";
+include "config.php";
 $db = new PDO('mysql:host='.Config::HOST.';dbname='.Config::DBNAME, Config::USER, Config::PASSWORD);
 
 $id = filter_input(INPUT_GET, 'id_etude', FILTER_VALIDATE_INT);
@@ -29,7 +29,7 @@ if ($id) {
 }
 
 $title = "Synthèse";
-include "../header/header.php";
+include "header.php";
 ?>
 
     <link rel="stylesheet" href="synthese.css">
@@ -102,4 +102,4 @@ include "../header/header.php";
         <?php endif; ?>
     </div>
 
-<?php include "../footer.php"; ?>
+<?php include "footer.php"; ?>
