@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="header.css">
-    <link rel="stylesheet" href="../synthese/synthese.css">
+    <link rel="stylesheet" href="synthese.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -70,9 +70,9 @@
     </div>
     <div class="offcanvas-body">
         <ul class="list-unstyled">
-            <li><a href="../index.php">🏠 Accueil</a></li>
-            <li><a href="../login.php">🐠 Connexion</a></li>
-            <li><a href="../logout.php">🐋 Déconnexion</a></li>
+            <li><a href="index.php">🏠 Accueil</a></li>
+            <li><a href="login.php">🐠 Connexion</a></li>
+            <li><a href="logout.php">🐋 Déconnexion</a></li>
         </ul>
 
         <div class="poisson-nage">🐟</div>
