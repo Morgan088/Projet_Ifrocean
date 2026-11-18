@@ -1,0 +1,65 @@
+.ze-title {
+    text-align: center;
+    font-weight: 700;
+    color: #0b3a78;
+    margin-bottom: 24px;
+}
+.ze-subtitle {
+    text-align: center;
+    font-size: 1.3rem;
+    color: #0b3a78;
+    margin-bottom: 18px;
+}
+.ze-card {
+    background: #f4faff;
+    border: 2px solid #3b8de0;
+    border-radius: 14px;
+    padding: 22px;
+    margin-bottom: 22px;
+    box-shadow: 0 4px 14px rgba(42, 127, 212, .12);
+}
+.ze-card .form-control:focus {
+    border-color: #3b8de0;
+    box-shadow: 0 0 0 .2rem rgba(59, 141, 224, .25);
+}
+.ze-card .input-group-text {
+    background: #dbeeff;
+    color: #0b3a78;
+    font-weight: 700;
+}
+.ze-planet {
+    height: 120px;
+    border: 2px dashed #3b8de0;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: #0b3a78;
+}
+.ze-planet span { font-size: .85rem; }
+.ze-example {
+    min-height: 220px;
+    border: 2px dashed #3b8de0;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: #0b3a78;
+    background: #fff;
+}
+.ze-example img { max-height: 300px; border-radius: 10px; }
+.ze-btn {
+    background: #3b8de0;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px 28px;
+    font-weight: 600;
+}
+.ze-btn:hover {
+    background: #0b3a78;
+    color: #fff;
+}
